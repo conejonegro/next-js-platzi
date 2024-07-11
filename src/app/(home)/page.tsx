@@ -1,7 +1,9 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import { LearnMore } from "../components/LearnMoreButton/LearnMore";
-import { Description, Hero } from "../components/Home";
+
+import { Description, Hero } from "app/components/Home";
+import { LearnMore } from "app/components/LearnMoreButton/LearnMore";
+
 
 export default function Home() {
   return (
@@ -17,8 +19,9 @@ export default function Home() {
           priority
         />
       </div>
-      <Hero />
+
       <Description />
+      <Hero />
       <LearnMore />
 
     </main>

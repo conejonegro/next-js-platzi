@@ -4,7 +4,7 @@ export default function CategoriasLayout({ children } : { children : React.React
 
     return(
         <div>
-            <h5>Navegacion por categorias</h5>
+            <h5>Navegacion por categorias </h5>
             {children}
         </div>
     )
