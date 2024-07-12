@@ -1,7 +1,7 @@
 export function Hero(){
     return(
         <>
-            <h2>Hero Banner</h2>
+            <h1>Hero Banner</h1>
         </>
     )
 }

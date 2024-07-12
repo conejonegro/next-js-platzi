@@ -1,5 +1,14 @@
+import MainProducts from "app/components/Products/Products";
+
+
 export default function Tienda(){
+
+
     return(
-        <h1>Tienda todos los productos</h1>
+        <section>
+             <h1>Tienda todos los productoss</h1>
+            <MainProducts />
+           
+        </section>
     )
 }
