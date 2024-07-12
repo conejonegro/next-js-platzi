@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Footer } from "app/components/Shared/Footer";
 import { Header } from "app/components/Shared/Header";
-import { montserrat, roboto_mono } from "./Fonts";
+import { montserrat, roboto_mono } from "app/Fonts";
+
 
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
