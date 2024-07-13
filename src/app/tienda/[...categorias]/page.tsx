@@ -1,16 +1,21 @@
+import MainProducts from "app/components/Products/Products";
+
 interface Props {
     params: {
-        categorias: string
+        categorias: string[]
     }
 }
-
-
-export default function Categorias(props: Props ){
-   
+export default function Tienda(props: Props){
     console.log(props)
     const { params: {categorias} } = props
-
     return(
-        <h1>Categorias reales: {categorias}</h1>
+        <section>
+            <h1>Pagina de producto: {categorias}</h1>
+           
+        </section>
     )
 }
+
+
+
+
