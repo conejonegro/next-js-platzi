@@ -14,10 +14,12 @@ import Link from "next/link";
             {products?.map((product) => {
               return(
                 <Link href={`tienda/${product.handle}`}>
+
                     <div className={style.product__container}>
                         <h5>{product.title}</h5>
                         <Image src={product.image.src} width={500} height={500} alt={product.title} className={style.image} />
                     </div>
+                    
                 </Link>
               )  
             })}

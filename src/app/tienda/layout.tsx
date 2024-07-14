@@ -1,8 +1,8 @@
 
-import { getCollections } from "app/services/shopify/getAllCollection"
-import Link from "next/link"
-import style from "./layout.module.css"
-
+import { getCollections } from "app/services/shopify/getAllCollection";
+import Link from "next/link";
+import style from "./layout.module.css";
+import { getProductsFromCollection } from "app/services/shopify/getProductsFromCollection";
 interface Collection  {
     id: number,
     handle: string,
@@ -21,15 +21,17 @@ interface Collection  {
 export default async function CategoriasLayout({ children } : { children : React.ReactNode }){
 
     const collections = await getCollections()
-    //console.log("mi arreglo", collections.smart_collections)
+    const productsFromCollection = await getProductsFromCollection(collections.id);
 
     return(
         <div>
             <nav className={style.collections__container}>
+
                 {collections.smart_collections?.map((collection: Collection) => (
                     <Link href={`/tienda/${collection.handle}`} key={collection.id}>
                         {collection.title}
                     </Link>
+
             ))}</nav>
             {children}
         </div>
