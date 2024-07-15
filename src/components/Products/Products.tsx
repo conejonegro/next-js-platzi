@@ -4,14 +4,16 @@ import { Endpoints } from "app/services/shopify/urls";
 import { getProducts }  from "app/services/shopify/getAllProducts";
 import Link from "next/link";
 
+
+
+
  export default async function MainProducts(){
-   
     
-    const products = await getProducts()
-   
+    const products = await getProducts();
+
     return(
         <div className={style.main_product__container}>
-            {products?.map((product) => {
+             {products?.map((product) => {
               return(
                 <Link href={`tienda/${product.handle}`}>
 
@@ -22,7 +24,7 @@ import Link from "next/link";
                     
                 </Link>
               )  
-            })}
+            })} 
             
         </div>
     )

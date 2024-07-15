@@ -8,9 +8,9 @@ export const getProducts = async () => {
             }
         })
 
-      const data = await response.json();
+      const { products } = await response.json();
       //console.log("mis productos", data.products)
-      return data.products
+      return products
         
     } catch (error) {
         console.log(error)

@@ -1,0 +1,19 @@
+.image{
+   width: 100%;
+   height: auto;
+}
+.product__container{
+   
+}
+.main_product__container{
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 16px;
+}
+@media (min-width:768px){
+   .main_product__container{
+       display: grid;
+       grid-template-columns: repeat(3, 1fr);
+       gap: 16px;
+   }
+}

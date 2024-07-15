@@ -8,9 +8,9 @@ export const getCollections = async () => {
             }
         })
 
-      const data = await response.json();
-      console.log("mis colecciones", data)
-      return data
+      const { smart_collections } = await response.json();
+      //console.log("mis colecciones", smart_collections)
+      return smart_collections
         
     } catch (error) {
         console.log(error)

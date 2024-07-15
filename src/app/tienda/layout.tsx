@@ -21,18 +21,19 @@ interface Collection  {
 export default async function CategoriasLayout({ children } : { children : React.ReactNode }){
 
     const collections = await getCollections()
-    const productsFromCollection = await getProductsFromCollection(collections.id);
+    //console.log("mis smart colecciones", collections)
+    //const productsFromCollection = await getProductsFromCollection("432835494117");
 
     return(
         <div>
-            <nav className={style.collections__container}>
+             <nav className={style.collections__container}>
 
-                {collections.smart_collections?.map((collection: Collection) => (
+                {collections?.map((collection: Collection) => (
                     <Link href={`/tienda/${collection.handle}`} key={collection.id}>
                         {collection.title}
                     </Link>
 
-            ))}</nav>
+            ))}</nav> 
             {children}
         </div>
     )
