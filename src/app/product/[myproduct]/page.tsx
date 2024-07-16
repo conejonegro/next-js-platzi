@@ -17,6 +17,7 @@ export default async function MyProductPage(props: propsType){
    const { searchParams: { id, color } } = props
    const { params: { myproduct } } = props
    const products = await getSingleProduct(id)
+   console.log("mis productos desde la pagina single product", products)
    const product = products[0]
    console.log("producto unico", product)
    return(
@@ -29,3 +30,5 @@ export default async function MyProductPage(props: propsType){
       </div>
    )
 }
+
+//http://localhost:3000/product/carro?id=8861373006053

@@ -15,7 +15,7 @@ import Link from "next/link";
         <div className={style.main_product__container}>
              {products?.map((product) => {
               return(
-                <Link href={`tienda/${product.handle}`}>
+                <Link href={`product/${product.handle}?id=${product.id}`}>
 
                     <div className={style.product__container}>
                         <h5>{product.title}</h5>
