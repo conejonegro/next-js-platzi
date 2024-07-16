@@ -21,7 +21,7 @@ export default async function Categoria(props: Props){
     //console.log("MIS COLECCIONESo ",collections);
     //console.log("Productos en la coleccion", productsFromCollection);
     
-    console.log("selectedCollectionmi", selectedCollectionID)
+    //console.log("selectedCollectionmi", selectedCollectionID)
 
     if(selectedCollectionID){
         products = await getProductsFromCollection(selectedCollectionID);
@@ -32,7 +32,7 @@ export default async function Categoria(props: Props){
     }
        
 
-    console.log("miproducts", products)
+    //console.log("miproducts", products)
 
     
     return(
