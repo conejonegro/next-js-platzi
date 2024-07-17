@@ -5,14 +5,29 @@ import { getProductsFromCollection } from "app/services/shopify/getProductsFromC
 import Link from "next/link";
 import style from "./page.module.css";
 import Image from "next/image";
+import type { Metadata } from "next";
 interface Props {
     params: {
         categorias: string[]
     }
 }
+
+export async function generateMetadata(props: Props){
+
+    const { params: { categorias } } = props
+    const collections = await getCollections()
+    const selectedCollection = collections.find((collection) => collection.handle === categorias[0])
+
+    return {
+        title: selectedCollection.title + " | True Love Design",
+        description: selectedCollection.rules[0].condition
+      }
+
+}
 export default async function Categoria(props: Props){
 
     const { params: { categorias } } = props
+    //console.log(categorias)
     let products = []
     const collections = await getCollections();
     const selectedCollectionID = collections.find((collection) => collection.handle === categorias[0]).id
@@ -34,7 +49,7 @@ export default async function Categoria(props: Props){
             <div className={style.main_product__container}>
                 {products?.map((product) => {
                 return(
-                    <Link href={`/product/${product.handle}?id=${product.id}`}>
+                    <Link href={`/product/${product.handle}?id=${product.id}`} key={product.id}>
                         <div className={style.product__container}>
                             <h5>{product.title}</h5>
                             <Image src={product.image.src} width={500} height={500} alt={product.title} className={style.image} />

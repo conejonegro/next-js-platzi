@@ -1,5 +1,6 @@
 import { getSingleProduct } from "app/services/shopify/getSingleProduct";
 import Image from "next/image";
+import type { Metadata } from "next";
 
 interface propsType {
    params: {
@@ -11,15 +12,28 @@ interface propsType {
    }
 }
 
+export async function generateMetadata(props: propsType){
+   const { searchParams: { id } } = props;
+   const products = await getSingleProduct(id)
+   console.log("MIS PRODUCTOS METADATA", products)
+   const product = products[0]
+
+   return {
+      title: product.title,
+      description: product.description
+    }
+
+}
+
 export default async function MyProductPage(props: propsType){
 
    console.log(props)
    const { searchParams: { id, color } } = props
    const { params: { myproduct } } = props
    const products = await getSingleProduct(id)
-   console.log("mis productos desde la pagina single product", products)
+   //console.log("mis productos desde la pagina single product", products)
    const product = products[0]
-   console.log("producto unico", product)
+   //console.log("producto unico", product)
    return(
       <div>
          <h1> {product.title}  </h1>
@@ -30,5 +44,3 @@ export default async function MyProductPage(props: propsType){
       </div>
    )
 }
-
-//http://localhost:3000/product/carro?id=8861373006053

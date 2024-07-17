@@ -16,6 +16,9 @@ export function Header(){
                 <li>
                     <Link href="/contacto">Contacto</Link>
                 </li>
+                <li>
+                    <Link href="/registro">Login</Link>
+                </li>
             </ul>
         </nav>
     )
