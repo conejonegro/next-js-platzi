@@ -1,0 +1,37 @@
+.product_details {
+   display: flex;
+   flex-direction: row-reverse;
+   align-items: start;
+   gap: 4rem;
+   padding: 1rem;
+   max-width: 800px;
+   margin: 0 auto;
+}
+
+.product_details h1 {
+   text-align: left;
+   font-size: 2rem;
+}
+.product_image_container{
+   max-width: 350px;
+   width: 100%;
+}
+
+.product_details p {
+   text-align: justify;
+   line-height: 1.5;
+}
+
+.product_details > div {
+   text-align: left;
+   font-weight: bold;
+   row-gap: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.product_details img {
+   border-radius: 5px;
+   width: 100%;
+   height: auto;
+}
