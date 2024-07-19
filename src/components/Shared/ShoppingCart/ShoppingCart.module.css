@@ -1,0 +1,9 @@
+.counter{
+   font-size: 10px;
+   background-color: orange;
+   border-radius: 50%;
+   padding: .2rem;
+}
+.button_counter{
+   cursor: pointer;
+}

@@ -17,14 +17,16 @@ export const handleCreateUser = async (formData: FormData) => {
 
   const { customerCreate } = await graphqlClient.request(createUserMutation, variables)
   const { customerUserErrors, customer } = customerCreate
-  console.log(customer)
+  console.log("hola customer", customer)
   console.log(customerUserErrors)
 }
 
 export const handleLogin = async (formData: FormData) => {
   const formDataObject = Object.fromEntries(formData)
   const accesToken = await createAccessToken(formDataObject.email as string, formDataObject.password as string)
+  console.log(accesToken)
   if(accesToken){
-    redirect('/store')
+    console.log("hola accesss")
+    redirect('/tienda')
   }
 }

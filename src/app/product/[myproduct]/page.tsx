@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import CategoriasLayout from "app/app/tienda/layout";
 import style from "./page.module.css"
+import { ProductViewItemsOrder } from "app/components/Products/productsViewItemsOrder";
 
 interface propsType {
    params: {
@@ -40,17 +41,28 @@ export default async function MyProductPage(props: propsType){
    return(
       <> 
          <CategoriasLayout children />
-         <div className={style.product_details}>
-            <div>
-               <h1> {product.title}  </h1>
-               <p>{product.description}  </p>
-               <div>Precio: ${product.price}</div>
-               <div>Cantiodad: {product.quantity}</div>
-            </div>
-            <div className={style.product_image_container}>
-               <Image src={product.image} alt={product.title} width={500} height={500} /> 
-            </div>   
-         </div>
+         <main className={style.ProductView}>
+      <section className={style.ProductView__images}>
+        <Image
+          loading="eager"
+          src={product.image}
+          width={500}
+          height={500}
+          quality={80}
+          alt={product.title}
+        />
+      </section>
+      <section className={style.ProductView__info}>
+        <h1 className={style.ProductView__info__title}>{product.title}</h1>
+        <p className={style.ProductView__info__category}>{product.tags}</p>
+       <p>{product.description}</p>
+       
+        <span className={style.ProductView__info__price}>
+          $ {product.price}
+        </span>
+        {<ProductViewItemsOrder maxQuantity={product.quantity} product={product} />}
+      </section>
+    </main>
       </>
    )
 }

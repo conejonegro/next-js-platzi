@@ -11,3 +11,11 @@
 .nav ul li::marker{
     content: "";
 }
+.logged_user{
+    font-size: 12px;
+}
+.loggedUser_container{
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+}

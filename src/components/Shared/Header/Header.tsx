@@ -1,9 +1,10 @@
 import Link from "next/link";
 import style from "./Header.module.css";
-//import { validateAccessToken } from "app/utils/auth/validateAccessToken";
+import { validateAccessToken } from "app/utils/auth/validateAccessToken";
+import { ShoppingCart } from "../ShoppingCart";
 
 export async function Header(){
-    //const customer = await validateAccessToken()
+    const customer = await validateAccessToken()
 
     return(
         <nav className={style.nav}>
@@ -25,7 +26,11 @@ export async function Header(){
                     <Link href="/registro">Registro</Link>
                 </li>
             </ul>
-         { /*customer?.firstName? <p>Hola usuario{customer.firstName}</p> : <Link href="/tienda">Login</Link>*/}
+            <div className={style.loggedUser_container}>
+            { customer?.firstName? <p className={style.logged_user}>Hola {customer.firstName}</p> : <Link href="/tienda">Login</Link> }
+            <ShoppingCart />
+            </div>
+
         </nav>
     )
 }
