@@ -1,6 +1,6 @@
 "use server"
 import { GraphQLClientSingleton } from "app/graphql"
-import { createUserMutation } from "app/graphql/mutations/createUserMutation"
+import { createUserMutation, CustomerCreateMutation   } from "app/graphql/mutations/createUserMutation"
 import { createAccessToken } from "app/utils/auth/createAccessToken"
 import { redirect } from "next/navigation"
 
@@ -15,7 +15,7 @@ export const handleCreateUser = async (formData: FormData) => {
     }
   }
 
-  const { customerCreate } = await graphqlClient.request(createUserMutation, variables)
+  const { customerCreate } = await graphqlClient.request<CustomerCreateMutation >(createUserMutation, variables)
   const { customerUserErrors, customer } = customerCreate
   console.log("hola customer", customer)
   console.log(customerUserErrors)
@@ -28,5 +28,8 @@ export const handleLogin = async (formData: FormData) => {
   if(accesToken){
     console.log("hola accesss")
     redirect('/tienda')
+  }
+  else{
+    console.log("error al logear")
   }
 }

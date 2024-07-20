@@ -5,7 +5,7 @@ import style from "./LoginForm.module.css";
 export const LoginForm = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    const formData = new FormData(event.target);
+    const formData = new FormData(event.target as HTMLFormElement);
     event.preventDefault();
     await handleLogin(formData);
   }

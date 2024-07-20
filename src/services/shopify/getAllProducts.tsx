@@ -1,5 +1,20 @@
 import { Endpoints } from "./urls";
 
+export type ShopifyProduct ={
+    id: string
+    title: string
+    handle: string
+    image: {
+      src: string
+    }
+    variants: {
+      price: string
+    }[]
+    availableForSale: boolean
+    descriptionHtml: string
+  
+}
+
 export const getProducts = async () => {
     try {
         const response = await fetch(Endpoints.allProducts, {

@@ -27,7 +27,7 @@ export async function Header(){
                 </li>
             </ul>
             <div className={style.loggedUser_container}>
-            { customer?.firstName? <p className={style.logged_user}>Hola {customer.firstName}</p> : <Link href="/tienda">Login</Link> }
+            { customer?.firstName? <p className={style.logged_user}>Hola {customer.firstName}</p> : <Link href="/login">Login</Link> }
             <ShoppingCart />
             </div>
 

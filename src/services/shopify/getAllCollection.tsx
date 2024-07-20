@@ -1,5 +1,16 @@
 import { Endpoints } from "./urls";
 
+export type ShopifyCollection = {
+    id: string;
+    title: string;
+    products: string[];
+    handle: string;
+    image: {
+        src: string;
+    };
+ 
+}
+
 export const getCollections = async () => {
     try {
         const response = await fetch(Endpoints.allCollections, {

@@ -1,6 +1,6 @@
 import MainProducts from "app/components/Products/Products";
-import { getCollections } from "app/services/shopify/getAllCollection";
-import { getProducts } from "app/services/shopify/getAllProducts";
+import { getCollections, ShopifyCollection } from "app/services/shopify/getAllCollection";
+import { getProducts, ShopifyProduct  } from "app/services/shopify/getAllProducts";
 import { getProductsFromCollection } from "app/services/shopify/getProductsFromCollection";
 import Link from "next/link";
 import style from "./page.module.css";
@@ -16,7 +16,7 @@ export async function generateMetadata(props: Props){
 
     const { params: { categorias } } = props
     const collections = await getCollections()
-    const selectedCollection = collections.find((collection) => collection.handle === categorias[0])
+    const selectedCollection = collections.find((collection: ShopifyCollection ) => collection.handle === categorias[0])
 
     return {
         title: selectedCollection.title + " | True Love Design",
@@ -30,7 +30,7 @@ export default async function Categoria(props: Props){
     //console.log(categorias)
     let products = []
     const collections = await getCollections();
-    const selectedCollectionID = collections.find((collection) => collection.handle === categorias[0]).id
+    const selectedCollectionID = collections.find((collection: ShopifyCollection) => collection.handle === categorias[0]).id
     //const productsFromCollection = await getProductsFromCollection(selectedCollectionID);
     //console.log("MIS COLECCIONES",collections);
     //console.log("Productos en la coleccion", productsFromCollection);
@@ -42,12 +42,12 @@ export default async function Categoria(props: Props){
         console.log("No se encontro la coleccion")
         products = await getProducts()
     }
-       
+       console.log("productos de la coleccions", products)
     return(
         <section>
             <h1>productos filtrado: {categorias}</h1>
             <div className={style.main_product__container}>
-                {products?.map((product) => {
+                {products?.map((product: ShopifyProduct) => {
                 return(
                     <Link href={`/product/${product.handle}?id=${product.id}`} key={product.id}>
                         <div className={style.product__container}>
